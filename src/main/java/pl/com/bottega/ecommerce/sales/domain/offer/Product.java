@@ -9,21 +9,15 @@ public class Product {
 	private String productName;
 	private Date productSnapshotDate;
 	private String productType;
-	private int quantity;
-	private BigDecimal totalCost;
-	private String currency;
 
 	public Product(String productId, BigDecimal productPrice, String productName, Date productSnapshotDate,
-			String productType, int quantity, BigDecimal totalCost, String currency) {
+			String productType) {
 		super();
 		this.productId = productId;
 		this.productPrice = productPrice;
 		this.productName = productName;
 		this.productSnapshotDate = productSnapshotDate;
 		this.productType = productType;
-		this.quantity = quantity;
-		this.totalCost = totalCost;
-		this.currency = currency;
 	}
 	
 	public String getProductId() {
@@ -44,21 +38,5 @@ public class Product {
 
 	public String getProductType() {
 		return productType;
-	}
-
-	public int getQuantity() {
-		return quantity;
-	}
-
-	public BigDecimal getTotalCost() {
-		return totalCost;
-	}
-
-	public void setTotalCost(BigDecimal totalCost) {
-		this.totalCost = totalCost;
-	}
-
-	public String getCurrency() {
-		return currency;
 	}
 }
