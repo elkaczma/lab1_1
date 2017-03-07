@@ -39,6 +39,10 @@ public class OfferItem {
 				.multiply(new BigDecimal(this.product.getQuantity())).subtract(discountValue));
 	}
 
+	public Product getProduct() {
+		return product;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
