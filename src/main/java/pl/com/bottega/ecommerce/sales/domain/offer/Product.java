@@ -54,6 +54,10 @@ public class Product {
 		return totalCost;
 	}
 
+	public void setTotalCost(BigDecimal totalCost) {
+		this.totalCost = totalCost;
+	}
+
 	public String getCurrency() {
 		return currency;
 	}

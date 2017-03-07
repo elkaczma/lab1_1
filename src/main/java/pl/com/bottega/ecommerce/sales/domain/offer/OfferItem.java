@@ -20,34 +20,23 @@ import java.util.Date;
 
 public class OfferItem {
 
-	private Product product = new Product();
+	private Product product;
+	private Discount discount;
 
-	private Discount discount = new Discount();
-
-	public OfferItem(String productId, BigDecimal productPrice, String productName,
-			Date productSnapshotDate, String productType, int quantity) {
-		this(productId, productPrice, productName, productSnapshotDate, productType, quantity, null, null);
+	public OfferItem(Product product) {
+		this(product, null);
 	}
 
-	public OfferItem(String productId, BigDecimal productPrice, String productName,
-			Date productSnapshotDate, String productType, int quantity,
-			BigDecimal discount, String discountCause) {
-		this.product.setProductId(productId);
-		this.product.setProductPrice(productPrice);
-		this.product.setProductName(productName);
-		this.product.setProductSnapshotDate(productSnapshotDate);
-		this.product.setProductType(productType);
-
-		this.product.setQuantity(quantity);
-		this.discount.setDiscount(discount);
-		this.discount.setDiscountCause(discountCause);
+	public OfferItem(Product product, Discount discount) {
+		this.product = product;
+		this.discount = discount;
 
 		BigDecimal discountValue = new BigDecimal(0);
 		if (discount != null)
-			discountValue = discountValue.subtract(discount);
+			discountValue = discountValue.subtract(discount.getDiscount());
 
-		this.product.setTotalCost(productPrice
-				.multiply(new BigDecimal(quantity)).subtract(discountValue));
+		this.product.setTotalCost(product.getProductPrice()
+				.multiply(new BigDecimal(this.product.getQuantity())).subtract(discountValue));
 	}
 
 	public String getProductId() {
